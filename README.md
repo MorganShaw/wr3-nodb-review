@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Visual mockup <a href="https://www.figma.com/file/T96hsjPDiG18zqsOp6WzwU/Untitled?node-id=1%3A10">here.</a>
 
-## Available Scripts
+# WR3 Glorious To-Do List!
 
-In the project directory, you can run:
+### MVP
 
-### `npm start`
+Description: A todo list app that lets me keep track of stuff I need to do.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</br>
+Features:
+- User can add new todo item
+- Uswer can view current todo items
+- Uswer can delete todo item
+- User can edit title of todo item
+- User can complete todos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### ICEBOX
+- Live chat dating feature
+- Watch hulu on the site to procrastinate your todos
+- Create next youtube/quibi/tiktok fusion that mines peoples personal information to sell on deep web
 
-### `npm test`
+### SERVER
+Dependencies:
+- Express
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Endpoints:
+- app.get("/api/todos")
+- app.post("/api/todos")
+- app.delete("/api/todos/:id")
+- app.put("/api/todos/complete/:id")
+- app.put("/api/todos/edit/:id")
 
-### `npm run build`
+Structure:
+- server/
+    - index.js
+    - controller.js
+    - todos.json
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### CLIENT
+Dependencies
+- axios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Structure:
+- src
+    - App.js
+    - App.css
+    - reset.css
+    - components/
+        - Header.js
+        - Header.css
+        - Form.js
+        - Form.css
+        - List.js
+        - List.css
+        - Task.js
+        - Task.css

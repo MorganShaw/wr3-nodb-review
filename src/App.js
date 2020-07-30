@@ -1,26 +1,57 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import './reset.css';
+import Header from './Components/Header'
+import List from './Components/List'
+import Form from './Components/Form'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      todos: [],
+    }
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  componentDidMount(){
+    this.getTodos();
+  };
+
+  getTodos = () => {
+    axios.get('/api/todos')
+      .then(res => {
+        this.setState({
+          todos: res.data
+        })
+      }
+    ).catch(err => console.log(err))
+  };
+
+  addTodo = (e, title) => {
+    e.preventDefault()
+    axios.post('/api/todos', {title})
+    .then(res => {
+      this.setState({
+        todos: res.data
+      })
+    })
+    .catch(err => console.log(err))
+  }
+//We put the setstate method back to original value (to clearn input field) not here on the addTodo method, but on the Form.js onSubmit arrow function, is because the change needs to happen on the Form.js component.
+  render () {
+    console.log(this.state)
+    return (
+      <div>
+        <Header/>
+        <Form addTodo={this.addTodo}/>
+        <List todos={this.state.todos}/>
+      </div>
+    );
+
+  }
 }
 
 export default App;

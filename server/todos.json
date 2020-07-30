@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Get eggs",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Clean out the fridge",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "title": "Sell data mining info on deep web",
+        "completed": false
+    }
+]
