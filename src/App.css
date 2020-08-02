@@ -35,11 +35,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .todo-title {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   color: #FFE68E;
   font-size: 18px;
   font-family: "Ranchers", cursive;
+}
+
+.form-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.form-elem {
+  margin: 10px;
+}
+
+.form-btn {
+  padding: 5px 15px;
+  font-family: 'Ranchers', cursive;
+  color: #FFE68E;
+  background-color: #A34D52;
+  box-shadow: 3px 3px 6px 2px #000000;
+}
+
+.btn-container {
+  display: flex;
+  position: relative;
+}
+
+.todo-btn {
+  margin-left: 5px;
 }

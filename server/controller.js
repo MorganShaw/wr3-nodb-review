@@ -1,4 +1,5 @@
 const todos = require('./todos.json')
+let id = 4;
 
 module.exports = {
     getTodos: (req, res) => {
@@ -9,14 +10,35 @@ module.exports = {
         if(!title) {
             res.status(405).send('Expected to receive a title for the todo')
         } else {
-            const newToDo = {
+            const newTodo = {
                 id,
                 title,
                 completed: false
             };
-            todos.push(newToDo);
+            todos.push(newTodo);
             id++;
             res.status(200).send(todos)
         }
-    }  
+    },  
+    deleteTodo: (req, res) => {
+        // console.log(req.params)
+        const {id} = req.params;
+        const index = todos.findIndex(todo => todo.id === +id)
+        if(index === -1) {
+            res.status(404).send("Todo item not found in list.")
+        } else {
+            todos.splice(index, 1)
+            res.status(200).send(todos)
+        }
+    },
+    completeTodo: (req, res) => {
+        const {id} = req.params;
+        const index = todos.findIndex(todo => todo.id === +id)
+        if(index === -1){
+            res.status(404).send("Todo item not found in list.")
+        } else {
+            todos[index].completed = !todos[index].completed
+            res.status(200).send(todos)
+        }
+    }
 }
